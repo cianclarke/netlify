@@ -38,7 +38,7 @@ exports.handler = async (ev, context) => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        token : 'xoxb-32731804422-1850092341107-eVGNIhlQzoNVFMr42JvbvwxN',
+        token : process.env.SLACK_KEY,
         channel,
         text
       })
