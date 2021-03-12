@@ -49,7 +49,7 @@ exports.handler = async (ev, context) => {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'Authorization' : process.env.SLACK_KEY
+        'Authorization' : `Bearer ${process.env.SLACK_KEY}`
       },
       body: JSON.stringify({
         channel,
