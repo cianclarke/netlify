@@ -4,6 +4,8 @@ const API_ENDPOINT = 'https://cat-fact.herokuapp.com/facts'
 
 exports.handler = async (ev, context) => {
   let body;
+  console.log('In the function')
+  console.log(ev)
   if (!ev.body){
     console.log('No body')
     return {
