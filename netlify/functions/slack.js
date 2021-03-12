@@ -32,7 +32,7 @@ exports.handler = async (ev, context) => {
   //   method : 'POST',
   //   headers : {
   //     'Content-Type' : 'application/json',
-  //     'Authorization' : 'Bearer xoxb-32731804422-1878588355600-Sjdz2WGDgPdf33LGCuJ9JI1c'
+  
   //   },
   //   body : JSON.stringify({
   //     "Type": "message", 
