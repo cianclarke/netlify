@@ -46,7 +46,7 @@ exports.handler = async (ev, context) => {
     'Content-Type': 'application/json',
     'Authorization' : `Bearer ${process.env.SLACK_KEY}`
   })
-  
+   
   let response
   try {
     response = await fetch('https://slack.com/api/chat.postMessage', {
