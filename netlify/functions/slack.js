@@ -32,7 +32,7 @@ exports.handler = async (ev, context) => {
   //   method : 'POST',
   //   headers : {
   //     'Content-Type' : 'application/json',
-  
+  //     'Authorization' : `Bearer ${process.env.SBOT_KEY}`
   //   },
   //   body : JSON.stringify({
   //     "Type": "message", 
