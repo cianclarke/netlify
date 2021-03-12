@@ -1,7 +1,4 @@
 const fetch = require('node-fetch')
-
-const API_ENDPOINT = 'https://cat-fact.herokuapp.com/facts'
-
 exports.handler = async (ev, context) => {
   const { Messages, CustomerReference, Markdown } = JSON.parse(ev.body);
   console.log(ev);
@@ -12,11 +9,15 @@ exports.handler = async (ev, context) => {
     });
   }
   messages = Messages;
-  console.log('sending to slack')
-  console.log(messages);
   if (messages){
-    messages.map(async msg => {
+    messages = messages.join('\n');
+    
       let response
+      console.log("Sending to slack")
+      console.log({
+        channel : CustomerReference,
+        text : messages
+      })
       try {
         response = await fetch('https://slack.com/api/chat.postMessage', {
           method: 'POST',
@@ -27,7 +28,7 @@ exports.handler = async (ev, context) => {
           },
           body: JSON.stringify({
             channel : CustomerReference,
-            text : msg
+            text : messages
           })
         })
         // handle response
