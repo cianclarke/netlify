@@ -45,7 +45,6 @@ exports.handler = async (ev, context) => {
       const slackresponse = await response.json();
       console.log('slack response')
       console.log(slackresponse);
-    });  
   }
   
   return {
