@@ -16,11 +16,11 @@ exports.handler = async (event, context) => {
       })
     }
   }
-
+  const fact = await response.json();
   return {
     statusCode: 200,
     body: JSON.stringify({
-      data: response
+      data: fact
     })
   }
 }
