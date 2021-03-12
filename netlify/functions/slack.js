@@ -28,7 +28,7 @@ exports.handler = async (ev, context) => {
   console.log(event);
   const utterance = text.replace(`<@${user}> `, '');
   
-  await fetch(`https://engagement.eu-1.servisbot.com/picard/v1/engage/cianclarke-CiansWebhook`, {
+  const sbotResult = await fetch(`https://engagement.eu-1.servisbot.com/picard/v1/engage/cianclarke-CiansWebhook`, {
     method : 'POST',
     headers : {
       'Content-Type' : 'application/json',
@@ -40,13 +40,9 @@ exports.handler = async (ev, context) => {
       "CustomerReference": channel
     })
   });
-  
-  console.log('sending tpoken')
-  console.log({
-    'Accept': 'application/json',
-    'Content-Type': 'application/json',
-    'Authorization' : `Bearer ${process.env.SLACK_KEY}`
-  })
+  console.log('sbotResult')
+  console.log(sbotResult);
+  console.log(await sbotResult.json());
   return {
     statusCode: 200,
     body: JSON.stringify({})
