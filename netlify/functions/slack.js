@@ -40,7 +40,12 @@ exports.handler = async (ev, context) => {
   //     "CustomerReference": user
   //   })
   // });
-  
+  console.log('sending tpoken')
+  console.log({
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    'Authorization' : `Bearer ${process.env.SLACK_KEY}`
+  })
   
   let response
   try {
