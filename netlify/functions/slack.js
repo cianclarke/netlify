@@ -25,12 +25,19 @@ exports.handler = async (ev, context) => {
     };
   };
   
-  const { channel, text } = event;
+  const { channel, text, user } = event;
   console.log('Gots event:')
   console.log(event);
+  const utterance = text.replace(`<@${user}> `, '');
   
   let response
   try {
+    console.log('responding with')
+    console.log({
+      token : process.env.SLACK_KEY,
+      channel,
+      text : utterance
+    })
     response = await fetch('https://slack.com/api/chat.postMessage', {
       method: 'POST',
       headers: {
@@ -40,7 +47,7 @@ exports.handler = async (ev, context) => {
       body: JSON.stringify({
         token : process.env.SLACK_KEY,
         channel,
-        text
+        text : utterance
       })
     })
     // handle response
