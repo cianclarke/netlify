@@ -39,8 +39,8 @@ const customers = {
 };
 
 exports.handler = async (ev, context) => {
-  let { phone } = JSON.parse(ev.body);
-  phone = phone || ev.queryStringParameters.phone;
+  let { phone } = (ev.body && JSON.parse(ev.body));
+  phone = phone || ev.queryStringParameters && ev.queryStringParameters.phone;
   if (!phone){
     return {
       statusCode: 400,
