@@ -16,7 +16,7 @@ const customers = {
     "pin" : "1234",
     "paymentDate" : Date.now() + ONE_DAY,
     "paymentDateHuman" : "March 30th",
-    "isVIP" : false,
+    "isVIP" : true,
     "phoneType" : "Apple iPhone XR 128gb Black",
     "balance" : "$15.00",
   },
