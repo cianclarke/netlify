@@ -39,6 +39,26 @@ const customers = {
     "isVIP" : false,
     "phoneType" : "Samsung Galaxy S9 64gb Black",
     "balance" : "$240.00",
+  },
+  '+17815551234' : {
+    "number" : "(781) 555 1234",
+    "name" : "Ben Bell",
+    "pin" : "1234",
+    "paymentDate" : Date.now() - ONE_DAY,
+    "paymentDateHuman" : "March 30th",
+    "isVIP" : false,
+    "phoneType" : "Samsung Galaxy S9 64gb Black",
+    "balance" : "$240.00",
+  },
+  '7815551234' : {
+    "number" : "(781) 555 1234",
+    "name" : "Ben Bell",
+    "pin" : "1234",
+    "paymentDate" : Date.now() - ONE_DAY,
+    "paymentDateHuman" : "March 30th",
+    "isVIP" : false,
+    "phoneType" : "Samsung Galaxy S9 64gb Black",
+    "balance" : "$240.00",
   }
 };
 
