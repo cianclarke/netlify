@@ -32,7 +32,7 @@ exports.handler = async (ev, context) => {
       body: JSON.stringify({
         channel : 'ciansbottest',
         text : `New missed input: ${userInput}`,
-        blocks : {
+        blocks : encodeURIComponent(JSON.stringify({
                     "type": "actions",
                     "block_id": "actions1",
                     "elements": [
@@ -84,7 +84,7 @@ exports.handler = async (ev, context) => {
                         "action_id": "button_1"
                       }
                     ]
-                  }
+                  }));
 
       })
     })
