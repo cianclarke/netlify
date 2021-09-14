@@ -4,7 +4,7 @@ exports.handler = async (event, context) => {
   console.log(event);
   console.log('context');
   console.log(context);
-  if (event.body.token in tokens || event.queryStringParameters.token in tokens){
+  if (tokens.includes(event.body.token) || tokens.includes(event.queryStringParameters.token)){
     return {
       statusCode: 200,
       body: JSON.stringify(event.body)
