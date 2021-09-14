@@ -1,0 +1,66 @@
+{
+  "Name": "VMwareITPOC",
+  "Bots": [
+    {
+      "Id": "cn1kwatson",
+      "Type": "BOTARMY",
+      "Enabled": true,
+      "Properties": {
+        "Name": "cn1kwatson"
+      }
+    },
+    {
+      "Id": "stggenie",
+      "Type": "BOTARMY",
+      "Enabled": true,
+      "Properties": {
+        "Name": "stggenie"
+      }
+    }
+  ],
+  "NluEngines": [
+    {
+      "Id": "vmwitassistant",
+      "Type": "BOTARMY",
+      "Properties": {
+        "Nlp": "ServisBOT"
+      }
+    }
+  ],
+  "IngressPipeline": [
+    {
+      "Id": "redact",
+      "Type": "PII",
+      "Properties": {
+        "Redactors": [
+          "usSocialSecurityNumber"
+        ]
+      }
+    }
+  ],
+  "EgressPipeline": [],
+  "Events": {
+    "@SessionStart": [
+      {
+        "Id": "MessageStep",
+        "Type": "SEND_MARKUP",
+        "Properties": {
+          "Markup": "<TimelineMessage><List type=\"disc\" selectable=\"true\" interactionType=\"utterance\"><Item title=\"HR Related\" id=\"HR Related\"/><Item title=\"IT Related\" id=\"IT Related\" /><Item title=\"Order Item\" id=\"Order Item\" /><Item title=\"View Open Tickets\" id=\"View Open Tickets\" /><Item title=\"Ask a question\" id=\"Ask a question\" /></List></TimelineMessage>",
+          "Context": {}
+        }
+      },
+      {
+        "Id": "DisableInputs",
+        "Type": "SEND_HOST_NOTIFICATION",
+        "Properties": {
+          "Notification": "SB:::UserInputDisabled"
+        }
+      }
+    ],
+    "@MissedInput": []
+  },
+  "Persona": "SMSBOT",
+  "Description": "POC created by VMware IT",
+  "Tags": [],
+  "Srn": "srn:botnet:us1:vmware:virtual-assistant:vmwareitpoc"
+}

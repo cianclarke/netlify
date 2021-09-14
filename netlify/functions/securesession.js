@@ -7,7 +7,7 @@ exports.handler = async (event, context) => {
   if (tokens.includes(event.body.token) || tokens.includes(event.queryStringParameters.token)){
     return {
       statusCode: 200,
-      body: JSON.stringify(event.body)
+      body: event.body
     }
   }
   

@@ -1,0 +1,19 @@
+{
+  "name": "TEST CASE 1: To talk to a human",
+  "context": {
+    "genesys":{
+      "userData":{
+        "Location":"IE",
+        "ChatProfile":"HR_Chat",
+        "FirstName":"Cian",
+        "LastName":"Clarke"
+      }
+    }
+  },
+  "endpoint": "vmware-GenesysHRChat",
+  "flow": [{
+      "title": "human",
+      "value": "human"
+    }
+  ]
+}

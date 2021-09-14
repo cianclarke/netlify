@@ -1,0 +1,21 @@
+{
+  "Data": {
+    "Stream": "live",
+    "Type": "GenesysPureCloud",
+    "Api": "https://nexus.socialanalytics.genesyscloud.com",
+    "ApiKey": "b39dced7-8241-49a6-a4d3-f52eb797234b",
+    "Endpoint": "hr_chat",
+    "EndRegex" : "sorry we missed you"
+  },
+  "Organization": "vmware",
+  "Config": {},
+  "Enabled": true,
+  "Updated": 1626361551756,
+  "Description": "genesys worker",
+  "Id": "440c2750-f5e7-4a20-996b-f38a94071697",
+  "Type": "genesys-worker",
+  "Name": "GenesysWorker",
+  "Created": 1626361551756,
+  "Status": "published",
+  "Srn": "srn:botnet:us1:vmware:worker:440c2750-f5e7-4a20-996b-f38a94071697"
+}

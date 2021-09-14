@@ -1,0 +1,88 @@
+{
+  "Name": "GenesysHRChat",
+  "Bots": [
+    {
+      "Id": "cn1kwatson",
+      "Type": "BOTARMY",
+      "Enabled": true,
+      "Properties": {
+        "Name": "cn1kwatson"
+      }
+    },
+    {
+      "Id": "vmwit-hr-microbot",
+      "Type": "BOTARMY",
+      "Enabled": true,
+      "Properties": {
+        "Name": "vmwit-hr-microbot"
+      }
+    },
+    {
+      "Id": "vmwit-it-microbot",
+      "Type": "BOTARMY",
+      "Enabled": true,
+      "Properties": {
+        "Name": "vmwit-it-microbot"
+      }
+    },
+    {
+      "Id": "genesys",
+      "Type": "BOTARMY",
+      "Enabled": true,
+      "Properties": {
+        "Name": "genesys"
+      }
+    }
+  ],
+  "NluEngines": [
+    {
+      "Id": "assistant",
+      "Type": "BOTARMY",
+      "Properties": {
+        "Nlp": "ServisBOT"
+      }
+    }
+  ],
+  "IngressPipeline": [
+    {
+      "Id": "HumanHandoverStep",
+      "Type": "HUMAN_HANDOVER",
+      "Properties": {
+        "Regexes": [
+          ".*HR Live Agent.*"
+        ],
+        "BotName": "genesys"
+      }
+    },
+    {
+      "Id": "HumanHandoverStep",
+      "Type": "HUMAN_HANDOVER",
+      "Properties": {
+        "Regexes": [
+          ".*Oasis Live Agent.*"
+        ],
+        "BotName": "genesysit"
+      }
+    }
+  ],
+  "EgressPipeline": [],
+  "Events": {
+    "@SessionStart": [
+      {
+        "Id": "MessageStep",
+        "Type": "SEND_MARKUP",
+        "Properties": {
+          "Markup": "<TimelineMessage><List type=\"disc\" selectable=\"true\" interactionType=\"utterance\"><Item title=\"HR Related\" id=\"HR Related\"/><Item title=\"IT Related\" id=\"IT Related\" /><Item title=\"Order Item\" id=\"Order Item\" /><Item title=\"View Open Tickets\" id=\"View Open Tickets\" /><Item title=\"Ask a question\" id=\"Ask a question\" /></List></TimelineMessage>",
+          "Context": {}
+        }
+      }
+    ],
+    "@MissedInput": []
+  },
+  "Persona": "route-bot",
+  "Description": "A VA to talk to genesys hr chat",
+  "Tags": [
+    "Genesys"
+  ],
+  "Srn": "srn:botnet:us1:vmware:virtual-assistant:genesyshrchat"
+}
