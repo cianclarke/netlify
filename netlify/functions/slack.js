@@ -12,6 +12,7 @@ exports.handler = async (ev, context) => {
     };
   }
   
+  console.log(ev.body);
   body = JSON.parse(ev.body);
   const { challenge, event } = body;
   if (!event && challenge){
