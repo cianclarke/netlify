@@ -44,8 +44,11 @@ exports.handler = async (ev, context) => {
         await sendBlocks('ciansbottest', existing_intent());
         break;
       case 'ignore':
-        await sendBlocks('ciansbottest', {});
+        await sendBlocks('ciansbottest', undefined, 'Ok - we\'ll let this one slide!');
         break;
+      default:
+        sendBlocks('ciansbottest', undefined, 'Not sure about that one.')
+        
         
     }
     return {

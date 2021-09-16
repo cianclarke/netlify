@@ -1,5 +1,5 @@
 const fetch = require('node-fetch')
-module.exports = async (channel, blocks) => {
+module.exports = async (channel, blocks, text) => {
   try {
     response = await fetch('https://slack.com/api/chat.postMessage', {
       method: 'POST',
@@ -10,7 +10,8 @@ module.exports = async (channel, blocks) => {
       },
       body: JSON.stringify({
         channel,
-        blocks
+        blocks,
+        text
       })
     });
     // handle response
