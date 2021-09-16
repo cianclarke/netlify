@@ -46,6 +46,10 @@ exports.handler = async (ev, context) => {
       case 'ignore':
         await sendBlocks('ciansbottest', undefined, 'Ok - we\'ll let this one slide!');
         break;
+      case 'do_add':
+        sendBlocks('ciansbottest', undefined, 'Ok - I\'ve added this training data to the existing intent.')
+      case 'do_create':
+        sendBlocks('ciansbottest', undefined, 'Ok - I\'ve created this new intent.')
       default:
         sendBlocks('ciansbottest', undefined, 'Not sure about that one.')
         
