@@ -34,6 +34,7 @@ exports.handler = async (ev, context) => {
   
   if (type === 'block_actions'){
     console.log('value');
+    console.log(actions);
     console.log(actions[0].value);
     switch(actions[0].value){
       case 'add_new':
