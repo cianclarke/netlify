@@ -47,13 +47,14 @@ exports.handler = async (ev, context) => {
         await sendBlocks('ciansbottest', undefined, 'Ok - we\'ll let this one slide!');
         break;
       case 'do_add':
-        sendBlocks('ciansbottest', undefined, 'Ok - I\'ve added this training data to the existing intent.')
+        await sendBlocks('ciansbottest', undefined, 'Ok - I\'ve added this training data to the existing intent.')
+        break;
       case 'do_create':
-        sendBlocks('ciansbottest', undefined, 'Ok - I\'ve created this new intent.')
+        await sendBlocks('ciansbottest', undefined, 'Ok - I\'ve created this new intent.')
+        break;
       default:
-        sendBlocks('ciansbottest', undefined, 'Not sure about that one.')
-        
-        
+        await sendBlocks('ciansbottest', undefined, 'Not sure about that one.')
+        break;
     }
     return {
       statusCode: 200,
