@@ -84,7 +84,7 @@ exports.handler = async (ev, context) => {
                         "action_id": "button_1"
                       }
                     ]
-                  }));
+                  }))
 
       })
     })
