@@ -37,10 +37,10 @@ exports.handler = async (ev, context) => {
     console.log(actions[0].value);
     switch(actions[0].value){
       case 'add_new':
-        await sendBlocks('ciansbottest', new_intent);
+        await sendBlocks('ciansbottest', new_intent());
         break;
       case 'add_existing':
-        await sendBlocks('ciansbottest', existing_intent);
+        await sendBlocks('ciansbottest', existing_intent());
         break;
       case 'ignore':
         await sendBlocks('ciansbottest', {});
