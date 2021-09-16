@@ -14,7 +14,8 @@ exports.handler = async (ev, context) => {
   
   console.log(ev.body);
   if (ev.body.startsWith('payload=')){
-    ev.body.replace('payload=', '');
+    
+    ev.body = ev.body.replace('payload=', '');
     ev.body = decodeURIComponent(ev.body);
   }
   body = JSON.parse(ev.body);
