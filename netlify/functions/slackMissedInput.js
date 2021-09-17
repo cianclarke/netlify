@@ -1,4 +1,4 @@
-const fetch = require('node-fetch')
+const sendBlocks = require('./lib/sendBlocks');
 const blocks =   [
   {
     "type": "section",
@@ -28,7 +28,7 @@ const blocks =   [
           "text": "Add to existing intent"
         },
         "style": "primary",
-        "value": "click_me_123"
+        "value": "add_existing"
       },
       {
         "type": "button",
@@ -37,16 +37,17 @@ const blocks =   [
           "emoji": true,
           "text": "Create new intent"
         },
-        "value": "click_me_123"
+        "value": "add_new"
       },
       {
         "type": "button",
         "text": {
           "type": "plain_text",
           "emoji": true,
-          "text": "Reject"
+          "text": "Ignore"
         },
-        "value": "click_me_123"
+        "value": "ignore",
+        "style" : "danger"
       }
     ]
   }
@@ -75,40 +76,9 @@ exports.handler = async (ev, context) => {
     };
   };
   
-  try {
-    response = await fetch('https://slack.com/api/chat.postMessage', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'Authorization' : `Bearer ${process.env.SLACK_KEY}`
-      },
-      body: JSON.stringify({
-        channel : 'ciansbottest',
-        //text : `New missed input: ${userInput}`,
-        blocks
-      })
-    });
-    // handle response
-  } catch (err) {
-    console.log('err')
-    console.log(err);
-    return {
-      statusCode: err.statusCode || 500,
-      body: JSON.stringify({
-        error: err.message
-      })
-    }
-  }
-  const slackresponse = await response.json();
-  console.log('slack response')
-  console.log(slackresponse);
-  return {
-    statusCode: 200,
-    body: JSON.stringify({})
-  };
+  return sendBlocks('ciansbottest', blocks);
 }
-
+// 
 // const ev = {
 //   body : JSON.stringify({
 //     userInput : 'Escew esoteric obfuscation'
