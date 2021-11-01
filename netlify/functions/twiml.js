@@ -23,7 +23,6 @@ exports.handler = async (event, context) => {
   // <Say voice="alice">Elevator Emergency: This is an automated message from TKE. We monitor your elevators at ${buildingName}. Someone has pushed the emergency call button in elevator number ${elevatorNumber} but there is no response or indication of a problem. Could you please have someone check the elevator to make sure no one is trapped or injured inside? If you need further assistance please call us back at ${branchCallback}.</Say>
   
   let response = `
-<?xml version="1.0" encoding="UTF-8"?>
 <Response>
   <Gather input="dtmf" timeout="3" numDigits="1">
       <Say>Please press 1 to acknowledge. Press 2 to pass this message to the next contact.</Say>
