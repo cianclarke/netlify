@@ -10,8 +10,9 @@ exports.handler = async (event, context) => {
   // conversation start
   client.calls
         .create({
+           machineDetection: 'Enable',
            url: 'https://wonderful-euler-636c85.netlify.app/.netlify/functions/twiml',
-           to: ev.queryStringParameters.to,
+           to: event.queryStringParameters.to,
            from: process.env.TWILIO_NUMBER
          })
         .then(call => console.log(call.sid))
