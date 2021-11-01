@@ -1,8 +1,9 @@
 
 
 exports.handler = async (event, context) => {
+  let body;
   try{
-    let body = event.body && JSON.parse(event.body);
+     body = event.body && JSON.parse(event.body);
   }catch(err){
     console.log('JSON parse error');
     console.log(event.body);
