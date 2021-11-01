@@ -14,24 +14,46 @@ exports.handler = async (event, context) => {
     branchCallback : 'unknown',
     elevatorNumber : 'unknown'
   };
+  console.log(body);
   const { 
     buildingName, 
     branchCallback,
     elevatorNumber
   } = body;
   // <Say voice="alice">Elevator Emergency: This is an automated message from TKE. We monitor your elevators at ${buildingName}. Someone has pushed the emergency call button in elevator number ${elevatorNumber} but there is no response or indication of a problem. Could you please have someone check the elevator to make sure no one is trapped or injured inside? If you need further assistance please call us back at ${branchCallback}.</Say>
+  
+  let response = `
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <Gather input="speech dtmf" timeout="3" numDigits="1">
+      <Say>Please press 1 or say yes to acknowledge. Press 2 to pass this message to the next contact.</Say>
+  </Gather>
+</Response>
+`;
+  if (body.msg && body.msg === 'Gather End' && body.Digits === '1'){
+    response = `
+<Response>  
+  <Say>Ok - you've acknowledged that you will check the elevator.</Say>
+  <Hangup/>
+</Response>
+`;
+  }
+  if (body.msg && body.msg === 'Gather End' && body.Digits === '1'){
+    response = `
+<Response>
+  <Say>Ok - we'll call another emergency contact.</Say>
+  <Hangup/>
+</Response>
+`;
+  }
+  
+  
+  
   return {
     statusCode: 200,
     headers : {
       'content-type' : 'application/xml'
     },
-    body: `
-<Response>
-  
-  <Gather input="speech dtmf" timeout="3" numDigits="1">
-      <Say>Please press 1 or say yes to acknowledge. Press 2 to pass this message to the next contact.</Say>
-  </Gather>
-</Response>
-`
+    body: response
   }
 }
