@@ -3,10 +3,10 @@
 exports.handler = async (event, context) => {
   let body;
   try{
-     body = event.body && JSON.parse(event.body);
+    const twilioBody = new URLSearchParams(event.body);
   }catch(err){
-    console.log('JSON parse error');
     console.log(event.body);
+    console.log('URL param body error');
     console.log(err);
   }
   body = body || {
