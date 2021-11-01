@@ -7,13 +7,12 @@ exports.handler = async (event, context) => {
     statusCode: 200,
     headers : {
       'content-type' : 'application/xml'
-    }
+    },
     body: `
 <Response>
   <Say voice="alice">Thanks for trying our documentation. Enjoy!</Say>
   <Play>http://demo.twilio.com/docs/classic.mp3</Play>
 </Response>
 `
-  )
   }
 }
