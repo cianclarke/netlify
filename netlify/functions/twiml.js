@@ -25,8 +25,8 @@ exports.handler = async (event, context) => {
   let response = `
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
-  <Gather input="speech dtmf" timeout="3" numDigits="1">
-      <Say>Please press 1 or say yes to acknowledge. Press 2 to pass this message to the next contact.</Say>
+  <Gather input="dtmf" timeout="3" numDigits="1">
+      <Say>Please press 1 to acknowledge. Press 2 to pass this message to the next contact.</Say>
   </Gather>
 </Response>
 `;
