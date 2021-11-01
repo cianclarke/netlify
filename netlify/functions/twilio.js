@@ -11,7 +11,8 @@ exports.handler = async (event, context) => {
   await client.calls
         .create({
            machineDetection: 'Enable',
-           url: 'https://wonderful-euler-636c85.netlify.app/.netlify/functions/twiml',
+           url: 'https://ec8cc11ea163.eu.ngrok.io/.netlify/functions/twiml',
+           //url: 'https://wonderful-euler-636c85.netlify.app/.netlify/functions/twiml',
            to: event.queryStringParameters.to,
            from: process.env.TWILIO_NUMBER
          })
