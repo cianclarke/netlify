@@ -1,7 +1,7 @@
 
 
 exports.handler = async (event, context) => {
-  let body;
+  let body = {};
   try{
     const twilioBody = new URLSearchParams(event.body);
   }catch(err){
@@ -9,11 +9,12 @@ exports.handler = async (event, context) => {
     console.log('URL param body error');
     console.log(err);
   }
-  body = body || {
-    buildingName : 'unknown',
-    branchCallback : 'unknown',
-    elevatorNumber : 'unknown'
-  };
+  console.log(body);
+  // body = body || {
+  //   buildingName : 'unknown',
+  //   branchCallback : 'unknown',
+  //   elevatorNumber : 'unknown'
+  // };
   console.log(body);
   const { 
     buildingName, 
