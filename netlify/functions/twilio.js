@@ -8,7 +8,7 @@ exports.handler = async (event, context) => {
   const client = require('twilio')(accountSid, authToken);
 
   // conversation start
-  client.calls
+  await client.calls
         .create({
            machineDetection: 'Enable',
            url: 'https://wonderful-euler-636c85.netlify.app/.netlify/functions/twiml',
