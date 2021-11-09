@@ -5,7 +5,8 @@
   "version": "0.1.0",
   "author": "@thorwebdev",
   "dependencies": {
-    "twilio": "3.70.0"
+    "twilio": "3.70.0",
+    "node-fetch": "^2.3.0"
   },
   "keywords": [
     "gatsby"
