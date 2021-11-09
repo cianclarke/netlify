@@ -23,7 +23,7 @@ exports.handler = async (event, context) => {
     expired = true;
   }
   console.log(context);
-  if (tokens.includes(token)){
+  if (tokens.includes(token) && !expired){
     return {
       statusCode: 200,
       body: JSON.stringify({ expired, token, ...event.body })
