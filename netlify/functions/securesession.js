@@ -13,7 +13,7 @@ exports.handler = async (event, context) => {
   console.log(event);
   console.log('context');
   
-  if (event.event.queryStringParameters.unexpire){
+  if (event.queryStringParameters.unexpire){
     expired = false;
     timeout = setTimeout(function(){
       expired = !expired;
