@@ -2,7 +2,7 @@ let expired = false;
 let timeout;
 if (!timeout || !expired){
   timeout = setTimeout(function(){
-    expired = true;
+    expired = !expired;
   }, 20000);  
 }
 
@@ -12,6 +12,13 @@ exports.handler = async (event, context) => {
   console.log('event');
   console.log(event);
   console.log('context');
+  
+  if (event.event.queryStringParameters.unexpire){
+    expired = false;
+    timeout = setTimeout(function(){
+      expired = !expired;
+    }, 20000);  
+  }
   console.log(context);
   if (tokens.includes(token)){
     return {
