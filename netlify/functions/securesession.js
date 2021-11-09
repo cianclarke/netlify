@@ -16,7 +16,7 @@ exports.handler = async (event, context) => {
   if (tokens.includes(token)){
     return {
       statusCode: 200,
-      body: { expired, token }
+      body: JSON.stringify({ expired, token, ...event.body })
     }
   }
   
