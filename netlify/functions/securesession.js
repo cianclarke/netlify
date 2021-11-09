@@ -1,3 +1,11 @@
+let expired = false;
+let timeout;
+if (!timeout || !expired){
+  timeout = setTimeout(function(){
+    expired = true;
+  })  
+}
+
 exports.handler = async (event, context) => {
   const tokens = ['1a', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c'];
   console.log('event');
@@ -7,7 +15,7 @@ exports.handler = async (event, context) => {
   if (tokens.includes(event.body.token) || tokens.includes(event.queryStringParameters.token)){
     return {
       statusCode: 200,
-      body: event.body
+      body: { expired, ...event.body }
     }
   }
   
