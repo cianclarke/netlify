@@ -3,7 +3,7 @@ let timeout;
 if (!timeout || !expired){
   timeout = setTimeout(function(){
     expired = true;
-  })  
+  }, 20000);  
 }
 
 exports.handler = async (event, context) => {
