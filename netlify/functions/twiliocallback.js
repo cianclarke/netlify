@@ -1,8 +1,28 @@
 const fetch = require('node-fetch');
+
+async function sendToServisbot(Called, utterance) {
+  const sbotResult = await fetch('https://engagement.eu-1.servisbot.com/picard/v1/engage/cians-tke-webhook', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${process.env.SBOT_KEY}`
+    },
+    body: JSON.stringify({
+
+      Type: 'message',
+      Value: utterance,
+      CustomerReference: Called
+    })
+  });
+  console.log(`Sent to servisbot ${Called} : ${utterance}`);
+  console.log(sbotResult);
+}
+
+
 // Takes prompts from Twilio and tells it what to say
 
 
-exports.handler = async (event, context) => {
+exports.handler = async (event) => {
   console.log('------twiliocallback.js------');
 
   let body = {};
@@ -29,22 +49,3 @@ exports.handler = async (event, context) => {
     body: ''
   };
 };
-
-
-async function sendToServisbot(Called, utterance) {
-  const sbotResult = await fetch('https://engagement.eu-1.servisbot.com/picard/v1/engage/cians-tke-webhook', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${process.env.SBOT_KEY}`
-    },
-    body: JSON.stringify({
-
-      Type: 'message',
-      Value: utterance,
-      CustomerReference: Called
-    })
-  });
-  console.log(`Sent to servisbot ${Called} : ${utterance}`);
-  console.log(sbotResult);
-}
