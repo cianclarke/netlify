@@ -26,14 +26,41 @@ exports.handler = async (event, context) => {
   console.log('url');
   console.log(url);
 
+  // dean hjas:
+  
+  /*
+  const options = {
+  machineDetection: "Enabled",
+  to: context.phone,
+  statusCallbackEvent: [
+    "initiated",
+    "ringing",
+    "answered",
+    "completed",
+  ],
+  statusCallback: getStatusEventWebhookUrl(),
+  statusCallbackMethod: "POST",
+  from: twilioPhoneNumber,
+};
+
+  */
+
+
+
   // conversation start
   await client.calls
     .create({
       machineDetection: 'Enable',
       url,
-      // statusCallback: 'https://cianclarke.eu.ngrok.io/.netlify/functions/twiliocallback',
-      statusCallback: 'https://wonderful-euler-636c85.netlify.app/.netlify/functions/twiliocallback',
-      statusCallbackEvent: ['completed'],
+      statusCallback: 'https://cianclarke.eu.ngrok.io/.netlify/functions/twiliocallback',
+      //statusCallback: 'https://wonderful-euler-636c85.netlify.app/.netlify/functions/twiliocallback',
+      statusCallbackEvent: [
+        "initiated",
+        "ringing",
+        "answered",
+        "completed",
+      ],
+      statusCallbackMethod: "POST",
       // url: 'https://wonderful-euler-636c85.netlify.app/.netlify/functions/twiml',
       to: phone, // event.queryStringParameters.to,
       from: process.env.TWILIO_NUMBER
