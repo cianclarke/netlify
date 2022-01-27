@@ -47,10 +47,11 @@ const respond = (e)=>{
       body: JSON.stringify({message : 'Employee not found'})
     };  
   }
-  delete e.token;
+  let emp = { ...e };
+  delete emp.token;
   return {
     statusCode: 200,
-    body: JSON.stringify(e)
+    body: JSON.stringify(emp)
   };
 };
 
