@@ -10,7 +10,8 @@ const employees = [
     "location": "Boston",
     "region":"NA",
     "country":"USA",
-    "token" : "1a"
+    "token" : "1a",
+    "key" : "ahdlfmFwcG9nZWUtaHItcHJvZHVjdGlvbnIVCxIIRW1wbG95ZWUYgICAgPj7ggoMogEGTWlKdXVx"
   },
   {
     "number": "+447771858764",
@@ -23,7 +24,8 @@ const employees = [
     "location": "York",
     "region":"EMEA",
     "country":"UK",
-    "token" : "1b"
+    "token" : "1b",
+    "key" : "ahdlfmFwcG9nZWUtaHItcHJvZHVjdGlvbnIVCxIIRW1wbG95ZWUYgICAgO3biwoMogEGTWlKdXVx"
   },
   {
     "number": "+447841288482",
@@ -36,7 +38,22 @@ const employees = [
     "location": "Manchester",
     "region":"EMEA",
     "country":"UK",
-    "token" : "1c"
+    "token" : "1c",
+    "key" : "ahdlfmFwcG9nZWUtaHItcHJvZHVjdGlvbnIVCxIIRW1wbG95ZWUYgICAwMiTnQoMogEGTWlKdXVx"
+  },
+  {
+    "number": "+17811234567",
+    "email" : "ben.bell@servisbot.com",
+    "department" : "Product",
+    "team" : "USProduct",
+    "name": "Ben Bell",
+    "employeeId": "3234",
+    "isManager": false,
+    "location": "Providence",
+    "region":"NA",
+    "country":"US",
+    "token" : "1d",
+    "key" : "ahdlfmFwcG9nZWUtaHItcHJvZHVjdGlvbnIVCxIIRW1wbG95ZWUYgICAwOzggwoMogEGTWlKdXVx"
   }
 ];
 
